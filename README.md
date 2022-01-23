@@ -8,7 +8,7 @@
 
 
 
-###**Dear Ta and Prof, this is a rough sketch and brainstorm section for our project, please do not read this as it is doodoo ideas that we are trying to prefect.**
+### **Dear Ta and Prof, this is a rough sketch and brainstorm section for our project, please do not read this as it is doodoo ideas that we are trying to prefect.**
 -----------------------------------------------------------------------
 #### The ideas so far
 * This will be a combination of juke box and a vinyl record plater, however to be more eco friendly we will use nfc cards with pictures of our favourite artist on them.
