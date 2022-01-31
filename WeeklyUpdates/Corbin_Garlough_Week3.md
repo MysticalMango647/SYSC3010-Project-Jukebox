@@ -18,16 +18,18 @@ implementation, hardware implementation)
 -1.5 hr meeting/brainstorming  
 -0.5 hr evaluating options with Roger in lab period
 
-### Top item: meeting/brainstorming, 1.5 hours
+### Top item: meeting/brainstorming, 1.5 hr
+### 2nd item: evaluating options with Roger in lab period, 0.5 hr
 
 ### What did you accomplish this week? (Be specific)  
 -Got a solid idea of the project were going to do (Jukebox)  
 -Identified major components of the project (Spotify API, Bluetooth speaker/wired speaker, NFC card/vision detection to play songs)  
+-Clarified project reqiurements with Roger during the lab period
 
 
 ### How do you feel about your progress? (brief, free-form reflection)  
 
--We got a good start on figuring out the details of our project. We identified 
+We got a good start on figuring out the details of our project. We identified 
 major components and some of what it would take to implement them. I feel like 
 this was a decent start but we will likely need another meeting to finalize the plans.  
 
