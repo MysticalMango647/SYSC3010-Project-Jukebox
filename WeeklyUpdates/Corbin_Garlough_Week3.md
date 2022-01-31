@@ -2,7 +2,7 @@
 ## Group number: L3-G6
 Student name: Corbin Garlough  
 
-Week 3: January 23-29  
+Week 3: January 24-30  
 ___
 ### How many hours did you spend on the project this week? (0-10)  
 
