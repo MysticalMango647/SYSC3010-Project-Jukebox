@@ -6,7 +6,8 @@ Week 3: January 23-29
 
 ### How many hours did you spend on the project this week? (0-10)  
 
--Wednesday: 1.5 hr
+-Wednesday: 1.5 hr  
+-Thursday: 0.5 hr 
 
 ### Rough breakdown  
 Give a rough breakdown of hours spent on 1-3 of the following:* (meetings, 
@@ -14,7 +15,8 @@ information gathering, design, research, brainstorming, evaluating options,
 prototyping options, writing/documenting, refactoring, testing, software 
 implementation, hardware implementation)  
 
--1.5 hr meeting/brainstorming
+-1.5 hr meeting/brainstorming  
+-0.5 hr evaluating options with Roger in lab period
 
 ### Top item: meeting/brainstorming, 1.5 hours
 
