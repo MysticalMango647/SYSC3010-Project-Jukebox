@@ -1,2 +1,2 @@
 def function_C():
-  print("Yunas Magsi")
+  print("name Corbin Garlough")
