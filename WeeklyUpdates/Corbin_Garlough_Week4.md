@@ -15,7 +15,7 @@ information gathering, design, research, brainstorming, evaluating options,
 prototyping options, writing/documenting, refactoring, testing, software 
 implementation, hardware implementation)  
 
-- 1 hr: information gathering regarding the Spotify API and getting Spotify for Developers set up for project sharing across out group members.  
+- 1 hr: information gathering regarding the Spotify API and getting Spotify for Developers set up for project sharing across our group members.  
 - 1.5 hr: research into NFC and evaluating options as to what hardware will be needed in order to implement the technology.  
 
 ### Top item: research and evaluating options, 1.5 hr  
