@@ -29,8 +29,7 @@ implementation, hardware implementation)
 
 ### How do you feel about your progress? (brief, free-form reflection)  
 
-Our week was mostly dedicated to working on and then editing the proposal, I also decided on an NFC reader to use. I think that with  
-the proposal finished we will be able to use it as a plan going forward, helping us to now see some of the finer details. I feel that we made good progress this week with me getting an NFC reader chosen and Flynn getting ready to start working with the Spotify API.
+Our week was mostly dedicated to working on and then editing the proposal, but all of us worked a bit on separate things as well. My indepedant work consisted of deciding on an NFC reader to use. I think that with the proposal finished we will be able to use it as a plan going forward, helping us to now see some of the finer details. I feel that we made good progress this week with me getting an NFC reader chosen, Flynn getting ready to start working with the Spotify API, and Yunas had started to dive into the display we are going to use.
 
 ### What are you planning to do next week? (give specific goals)  
 - Start on getting the Spotify API connected and streaming through a Pi
