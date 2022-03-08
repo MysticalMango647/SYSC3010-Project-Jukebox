@@ -1,0 +1,50 @@
+<mxfile host="app.diagrams.net" modified="2022-02-09T01:14:28.163Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36" etag="fp18bvGmGHuhaboR8brn" version="16.5.3" type="github">
+  <diagram id="kgpKYQtTHZ0yAKxKKP6v" name="Page-1">
+    <mxGraphModel dx="703" dy="519" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="3nuBFxr9cyL0pnOWT2aG-5" value="Firebase DataBase" style="shape=umlLifeline;perimeter=lifelinePerimeter;container=1;collapsible=0;recursiveResize=0;rounded=0;shadow=0;strokeWidth=1;" parent="1" vertex="1">
+          <mxGeometry x="340" y="80" width="110" height="300" as="geometry" />
+        </mxCell>
+        <mxCell id="DFfU1nKj_Yy4CTOK7xRx-19" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;" vertex="1" parent="3nuBFxr9cyL0pnOWT2aG-5">
+          <mxGeometry x="50" y="120" width="10" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="DFfU1nKj_Yy4CTOK7xRx-5" value="iJukebox pi" style="shape=umlLifeline;perimeter=lifelinePerimeter;container=1;collapsible=0;recursiveResize=0;rounded=0;shadow=0;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="210" y="80" width="100" height="400" as="geometry" />
+        </mxCell>
+        <mxCell id="DFfU1nKj_Yy4CTOK7xRx-18" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;" vertex="1" parent="DFfU1nKj_Yy4CTOK7xRx-5">
+          <mxGeometry x="45" y="60" width="10" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="DFfU1nKj_Yy4CTOK7xRx-7" value="NFC Reader" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="80" y="80" width="100" height="400" as="geometry" />
+        </mxCell>
+        <mxCell id="DFfU1nKj_Yy4CTOK7xRx-17" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;" vertex="1" parent="DFfU1nKj_Yy4CTOK7xRx-7">
+          <mxGeometry x="45" y="60" width="10" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="DFfU1nKj_Yy4CTOK7xRx-10" value="Get Card ID" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;rounded=0;exitX=0.494;exitY=0.175;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="DFfU1nKj_Yy4CTOK7xRx-5" target="DFfU1nKj_Yy4CTOK7xRx-7">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="210" y="279.66" as="sourcePoint" />
+            <mxPoint x="130" y="279.66" as="targetPoint" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DFfU1nKj_Yy4CTOK7xRx-13" value="Receive Card ID" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;entryX=0.494;entryY=0.263;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="DFfU1nKj_Yy4CTOK7xRx-7" target="DFfU1nKj_Yy4CTOK7xRx-5">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="300" y="250" as="sourcePoint" />
+            <mxPoint x="285" y="170" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="150" y="185" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DFfU1nKj_Yy4CTOK7xRx-16" value="Send Card ID" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;exitX=0.518;exitY=0.33;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="DFfU1nKj_Yy4CTOK7xRx-5" target="3nuBFxr9cyL0pnOWT2aG-5">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="300" y="250" as="sourcePoint" />
+            <mxPoint x="380" y="250" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
