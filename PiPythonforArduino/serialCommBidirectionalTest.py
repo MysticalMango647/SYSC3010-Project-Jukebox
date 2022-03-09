@@ -2,6 +2,9 @@
 import serial
 import time
 
+#before running install pyserial library -yunas
+#python3 -m pip install pyserial 
+
 if __name__ == '__main__':
     ser = serial.Serial('/dev/ttyUSB0', 9600, timeout=1)
     ser.reset_input_buffer()
