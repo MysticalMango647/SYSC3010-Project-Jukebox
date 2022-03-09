@@ -15,18 +15,18 @@ void loop() {
     ind1 = data.indexOf('(');
     ind2 = data.indexOf(')');
     text = data.substring(ind1+1, ind2);
-    Serial.print("You sent me confirmed: ");
-    Serial.println(text);
-    updateDisplay(text)
+    updateDisplay(text);
   }
 }
 
 void updateDisplay(String toDisplay) {
-
-        int strLen= toDisplay.length() + 1;
-        char char_array[strLen];
-        lcd.clear();
-        toDisplay.toCharArray(char_array,strLen);
-        lcd.setCursor(0, 1);
-        lcd.write(toDisplay);
+  Serial.print("Updated display with: ");
+  Serial.println(toDisplay);
+   
+//        int strLen= toDisplay.length() + 1;
+//        char char_array[strLen];
+//        lcd.clear();
+//        toDisplay.toCharArray(char_array,strLen);
+//        lcd.setCursor(0, 1);
+//        lcd.write(toDisplay);
 } 

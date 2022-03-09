@@ -7,6 +7,8 @@ import RPi.GPIO as GPIO
 from pn532 import *
 import serial
 
+GPIO.setwarnings(False)
+
 # Create new Firebase config and database object
 config = {
   "apiKey": "AIzaSyBKzE2PdUDJzSC0KE_NxESoElAExzbLTv8",
@@ -51,8 +53,6 @@ def readTagID(tagIDs):
         # Configure PN532 to communicate with MiFare cards
         pn532.SAM_configuration()
         
-        ser = serial.Serial('/dev/ttyUSB0', 9600, timeout=1)
-        ser.reset_input_buffer()
         
         cardIDprev = ""
 
@@ -71,11 +71,7 @@ def readTagID(tagIDs):
                 i += 1
             if cardID != cardIDprev:
                 print("\n" + cardID)
-                teststring = "updateDisplay(" + cardID + ")\n"
-                ser.write(teststring.encode('utf-8'))
-                time.sleep(1)
-                line = ser.readline().decode('utf-8').rstrip()
-                print(line)
+                return cardID
             cardIDprev = cardID
 #             for i in tagIDs:
 #                 print("Key: " + i.key())
@@ -88,12 +84,26 @@ def readTagID(tagIDs):
         print(e)
     finally:
         GPIO.cleanup()
-  
+
+def updateDisplay(cardID, ser, tagIDs):
+    for i in tagIDs:
+#         print("Key: " + i.key())
+#         print("Val: " + i.val())
+        if i.key() == cardID:
+            teststring = "updateDisplay(" + i.val() + ")\n"
+    #teststring = "updateDisplay(" + cardID + ")\n"
+    ser.write(teststring.encode('utf-8'))
+    time.sleep(1)
+    line = ser.readline().decode('utf-8').rstrip()
+    time.sleep(1)
+    print(line)
+    
 def main():
     tagIDs = readData()
-    readTagID(tagIDs)
-    
-
+    ser = serial.Serial('/dev/ttyUSB0', 9600, timeout=1)
+    ser.reset_input_buffer()
+    while True:
+        updateDisplay(readTagID(tagIDs), ser, tagIDs)
   
 if __name__ == "__main__":
     main()
