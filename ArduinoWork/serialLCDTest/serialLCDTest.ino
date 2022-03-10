@@ -23,10 +23,10 @@ void updateDisplay(String toDisplay) {
   Serial.print("Updated display with: ");
   Serial.println(toDisplay);
    
-//        int strLen= toDisplay.length() + 1;
-//        char char_array[strLen];
-//        lcd.clear();
-//        toDisplay.toCharArray(char_array,strLen);
-//        lcd.setCursor(0, 1);
-//        lcd.write(toDisplay);
+  int strLen= toDisplay.length() + 1;
+  char char_array[strLen];
+  lcd.clear();
+  toDisplay.toCharArray(char_array,strLen);
+  lcd.setCursor(0, 1);
+  lcd.write(toDisplay);
 } 
