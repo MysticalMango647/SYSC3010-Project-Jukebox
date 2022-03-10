@@ -7,7 +7,7 @@ void loop() {
   // put your main code here, to run repeatedly:
   if (Serial.available() > 0) {
     String data = Serial.readStringUntil('\n');
-    Serial.print("You sent me: ");
+    Serial.print("The Arduino recieved: ");
     Serial.println(data);
   }
 }
