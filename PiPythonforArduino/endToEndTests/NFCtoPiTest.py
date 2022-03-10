@@ -52,7 +52,7 @@ def readTagID():
         
 class TestNFCMethods(unittest.TestCase):
 
-    def test_FirbaseRead(self):
+    def test_NFCRead(self):
         tagID = readTagID()
         self.assertEqual(tagID, '13569103')
         
