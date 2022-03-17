@@ -21,6 +21,7 @@ firebase = pyrebase.initialize_app(config)
 db = firebase.database()
 
 dataset1 = "tagIDs"
+dataset2 = "songRequests"
   
 def readData():
   # Returns the entry as an ordered dictionary (parsed from json)
@@ -41,6 +42,7 @@ def readData():
 #   if "test" in tagIds_list:
 #       print("Test in list")
   return tagIds_list
+
 def readTagID(tagIDs):
     try:
         #pn532 = PN532_SPI(debug=False, reset=20, cs=4)
@@ -70,7 +72,7 @@ def readTagID(tagIDs):
                 cardID = cardID + str(uid[i])
                 i += 1
             if cardID != cardIDprev:
-                print("\n" + cardID)
+                print("\n" + cardID + "\n")
                 return cardID
             cardIDprev = cardID
 #             for i in tagIDs:
@@ -86,24 +88,56 @@ def readTagID(tagIDs):
         GPIO.cleanup()
 
 def updateDisplay(cardID, ser, tagIDs):
+    teststring = ""
     for i in tagIDs:
 #         print("Key: " + i.key())
 #         print("Val: " + i.val())
         if i.key() == cardID:
+            print("New card detected: " + i.val())
             teststring = "updateDisplay(" + i.val() + ")\n"
-    #teststring = "updateDisplay(" + cardID + ")\n"
     ser.write(teststring.encode('utf-8'))
-    time.sleep(1)
+    time.sleep(2)
     line = ser.readline().decode('utf-8').rstrip()
-    time.sleep(1)
     print(line)
+            
+def logRequest(tagID, key):
+    key = key
+ 
+  #while True:
+    # I'm using dummy sensor data here, you could use your senseHAT
+    time = str(datetime.now().time())
+    strippedTime = time.split('.', 1)[0]
+
+    # Will be written in this form:
+    # {
+    #   "sensor1" : {
+    #     "0" : 0.6336863763908736,
+    #     "1" : 0.33321038818190285,
+    #     "2" : 0.6069185320998802,
+    #     "3" : 0.470459178006184,
+    #   }
+    # }
+    # Each 'child' is a JSON key:value pair
+    print("Time: " + strippedTime)
+    print("Tag ID: " + tagID)
+
+    db.child(dataset2).child(strippedTime).set(tagID)
+
+    #time.sleep(5)
     
 def main():
+    i = 0
     tagIDs = readData()
     ser = serial.Serial('/dev/ttyUSB0', 9600, timeout=1)
     ser.reset_input_buffer()
+    prevTagID = ""
     while True:
-        updateDisplay(readTagID(tagIDs), ser, tagIDs)
+        tagID = readTagID(tagIDs)
+        if tagID != prevTagID:
+            updateDisplay(tagID, ser, tagIDs)
+            prevTagID = tagID
+            logRequest(tagID, i)
+            i += 1
   
 if __name__ == "__main__":
     main()
