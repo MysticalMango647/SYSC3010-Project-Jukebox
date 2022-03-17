@@ -105,6 +105,7 @@ def logRequest(tagID, key):
  
   #while True:
     # I'm using dummy sensor data here, you could use your senseHAT
+    #edit test
     time = str(datetime.now().time())
     strippedTime = time.split('.', 1)[0]
 
