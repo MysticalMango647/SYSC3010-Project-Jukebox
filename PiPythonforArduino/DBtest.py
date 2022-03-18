@@ -6,6 +6,10 @@ from datetime import datetime
 import RPi.GPIO as GPIO
 from pn532 import *
 import serial
+import sqlite3
+from datetime import date
+
+debug = True
 
 GPIO.setwarnings(False)
 
@@ -22,8 +26,13 @@ db = firebase.database()
 
 dataset1 = "tagIDs"
 dataset2 = "songRequests"
-  
-def readData():
+
+#connect to database file
+dbconnect = sqlite3.connect("iJukeboxDB");
+dbconnect.row_factory = sqlite3.Row;
+cursor = dbconnect.cursor();
+
+def getTags():
   # Returns the entry as an ordered dictionary (parsed from json)
   tagIds = db.child(dataset1).get()
  
@@ -72,7 +81,7 @@ def readTagID(tagIDs):
                 cardID = cardID + str(uid[i])
                 i += 1
             if cardID != cardIDprev:
-                print("\n" + cardID + "\n")
+                print("\nTag ID: " + cardID)
                 return cardID
             cardIDprev = cardID
 #             for i in tagIDs:
@@ -87,20 +96,27 @@ def readTagID(tagIDs):
     finally:
         GPIO.cleanup()
 
-def updateDisplay(cardID, ser, tagIDs):
+def updateDisplay(message, ser):
     teststring = ""
-    for i in tagIDs:
-#         print("Key: " + i.key())
-#         print("Val: " + i.val())
-        if i.key() == cardID:
-            print("New card detected: " + i.val())
-            teststring = "updateDisplay(" + i.val() + ")\n"
+    
+    teststring = "updateDisplay(" + message + ")\n"
     ser.write(teststring.encode('utf-8'))
     time.sleep(2)
     line = ser.readline().decode('utf-8').rstrip()
     print(line)
+    
+def getCardVal(cardID, tagIDs):
+    for i in tagIDs:
+#         print("Key: " + i.key())
+#         print("Val: " + i.val())
+        if i.key() == cardID:
+            infoPair = i.val().split(',', 1)
+            print ("Song: " + infoPair[0])
+            print ("Artist: " + infoPair[1])
             
-def logRequest(tagID, key):
+            return infoPair
+            
+def logRequest(info, key):
     key = key
  
   #while True:
@@ -108,6 +124,9 @@ def logRequest(tagID, key):
     #edit test
     time = str(datetime.now().time())
     strippedTime = time.split('.', 1)[0]
+    currDate = date.today()
+    
+    
 
     # Will be written in this form:
     # {
@@ -119,26 +138,49 @@ def logRequest(tagID, key):
     #   }
     # }
     # Each 'child' is a JSON key:value pair
-    print("Time: " + strippedTime)
-    print("Tag ID: " + tagID)
+    if debug == True:
+        print("Time: " + strippedTime)
+        print("Date: " + str(currDate))
+        print("Info logged: " + info[0] + "," + info[1])
 
-    db.child(dataset2).child(strippedTime).set(tagID)
+    db.child(dataset2).child(currDate).child(strippedTime).set(info)
 
     #time.sleep(5)
     
+def logRequestLocal(info):
+    #execute insert statement
+    song = info[0]
+    artist = info[1]
+    album = "NONE"
+    currtime = str(datetime.now().time())
+    strippedTime = currtime.split('.', 1)[0]
+    cursor.execute('''insert into songRequests values (date('now'), ?, ?, ?, ?)''', (strippedTime, song, artist, album));
+    dbconnect.commit();
+    time.sleep(1);
+    
+    
 def main():
-    i = 0
-    tagIDs = readData()
+    i = 1
+    tagIDs = getTags()
     ser = serial.Serial('/dev/ttyUSB0', 9600, timeout=1)
     ser.reset_input_buffer()
     prevTagID = ""
     while True:
         tagID = readTagID(tagIDs)
         if tagID != prevTagID:
-            updateDisplay(tagID, ser, tagIDs)
-            prevTagID = tagID
-            logRequest(tagID, i)
-            i += 1
+            tagVal = getCardVal(tagID, tagIDs)
+            try:
+                message = tagVal[0] + "," + tagVal[1]
+                updateDisplay(message, ser)
+                prevTagID = tagID
+                logRequest(tagVal, i)
+                logRequestLocal(tagVal)
+                i += 1
+            except:
+                print("Invalid Tag ID")
+    #close the connection
+    dbconnect.close();
+            
   
 if __name__ == "__main__":
     main()
