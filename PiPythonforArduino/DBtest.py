@@ -1,7 +1,6 @@
 import pyrebase
 import random
 import time
-from sense_hat import SenseHat
 from datetime import datetime
 import RPi.GPIO as GPIO
 from pn532 import *
