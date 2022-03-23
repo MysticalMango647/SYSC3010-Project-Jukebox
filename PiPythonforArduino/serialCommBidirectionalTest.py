@@ -10,8 +10,11 @@ if __name__ == '__main__':
     ser.reset_input_buffer()
 
     while True:
-        command = str.encode(input())
-        ser.write(b"%s\n" % command)
+        command = input()
+        teststring = "updateDisplay(" + command + ")\n"
+        #teststring = "updateDisplay(" + cardID + ")\n"
+        ser.write(teststring.encode('utf-8'))
+        #ser.write(b"%s\n" % command)
         line = ser.readline().decode('utf-8').rstrip()
         print(line)
         time.sleep(1)

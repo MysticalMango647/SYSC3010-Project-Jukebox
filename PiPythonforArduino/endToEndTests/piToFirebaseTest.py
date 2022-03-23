@@ -5,6 +5,7 @@ from sense_hat import SenseHat
 from datetime import datetime
 import RPi.GPIO as GPIO
 import serial
+import unittest
 
 # Create new Firebase config and database object
 config = {
@@ -25,15 +26,17 @@ def readData():
   
   # Returns the dictionary as a list
   tagIds_list = tagIds.each()
-  
-  for i in tagIds:
-    print("Key: " + i.key())
-    print("Val: " + i.val())
     
   return tagIds_list
+
+class TestFirebaseMethods(unittest.TestCase):
+
+    def test_FirbaseRead(self):
+        tagIDs = readData()
+        self.assertEqual(tagIDs[0].val(), 'test')
 
 def main():
     tagIDs = readData()
   
 if __name__ == "__main__":
-    main()
+    unittest.main()
