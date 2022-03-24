@@ -10,7 +10,7 @@ from datetime import date
 import unittest
 
 #connect to database file
-dbconnect = sqlite3.connect("iJukeboxDB");
+dbconnect = sqlite3.connect("/home/pi/Desktop/SYSC3010/SYSC3010-Project-Jukebox/PiPythonforArduino/iJukeboxDB");
 dbconnect.row_factory = sqlite3.Row;
 cursor = dbconnect.cursor();
 
