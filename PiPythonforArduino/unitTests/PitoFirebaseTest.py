@@ -46,6 +46,25 @@ def logRequest(info, key):
 
     db.child(dataset2).child(currDate).child(strippedTime).set(info)
     
+def getCardVal(cardID, tagIDs):
+    for i in tagIDs:
+#         print("Key: " + i.key())
+#         print("Val: " + i.val())
+        if i.key() == cardID:
+            infoPair = i.val().split(',', 1)
+            print ("Song: " + infoPair[0])
+            print ("Artist: " + infoPair[1])
+            
+            return infoPair
+    
+def getTags():
+  # Returns the entry as an ordered dictionary (parsed from json)
+  tagIds = db.child(dataset1).get()
+  
+  # Returns the dictionary as a list
+  tagIds_list = tagIds.each()
+  return tagIds_list
+
 class TestNFCMethods(unittest.TestCase):
 
     def test_FirebaseWrite(self):
@@ -58,6 +77,10 @@ class TestNFCMethods(unittest.TestCase):
         #print(requests[0].val())
         self.assertEqual(requests[0].val(), 'test song')
         self.assertEqual(requests[1].val(), 'test artist')
+        tags = getTags()
+        info = getCardVal("13569103", tags)
+        self.assertEqual(info[0], "Sink The Pink")
+        self.assertEqual(info[1], "ACDC")
         
   
 if __name__ == "__main__":
