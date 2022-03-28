@@ -98,7 +98,7 @@ def readTagID(tagIDs):
 def updateDisplay(message, ser):
     teststring = ""
     
-    teststring = "updateDisplay(" + message + ")\n"
+    teststring = message
     ser.write(teststring.encode('utf-8'))
     time.sleep(2)
     line = ser.readline().decode('utf-8').rstrip()
@@ -161,7 +161,7 @@ def logRequestLocal(info):
 def main():
     i = 1
     tagIDs = getTags()
-    ser = serial.Serial('/dev/ttyUSB0', 9600, timeout=1)
+    ser = serial.Serial('/dev/ttyACM0', 9600, timeout=1)
     ser.reset_input_buffer()
     prevTagID = ""
     while True:
@@ -169,7 +169,7 @@ def main():
         if tagID != prevTagID:
             tagVal = getCardVal(tagID, tagIDs)
             try:
-                message = tagVal[0] + "," + tagVal[1]
+                message = tagVal[0] + "," + tagVal[1] + ","
                 updateDisplay(message, ser)
                 prevTagID = tagID
                 logRequest(tagVal, i)

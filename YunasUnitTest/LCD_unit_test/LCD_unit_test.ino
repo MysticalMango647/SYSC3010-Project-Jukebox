@@ -18,21 +18,7 @@ void setup() {
 }
 
 void loop() {
-  if (Serial.available() > 0) {
-    String data = Serial.readStringUntil('\n');
-    ind1 = data.indexOf('(');
-    ind2 = data.indexOf(')');
-    text = data.substring(ind1+1, ind2);
-    Serial.print("You sent me confirmed: ");
-    Serial.println(text);
-    //updateDisplay(text)
-  }
-  // put your main code here, to run repeatedly:
-  //displayLCD();
-}
-
-void displayLCD(){
-   String song = "";
+  String song = "";
    String artist = "";
    String strArr[16];
    String receivedCharToString = "";
@@ -56,6 +42,7 @@ void displayLCD(){
           }
           song = strArr[0];
           artist = strArr[1];
+          lcd.clear();
           lcd.setCursor(0, 0); 
           lcd.print(song);
           lcd.setCursor(0, 1);
@@ -63,8 +50,8 @@ void displayLCD(){
           //Serial.print(receivedCharToString);
                    
    }
-   Serial.print(receivedCharToString);
+   //Serial.print(receivedCharToString);
    //Serial.println(song);
    ///Serial.println(artist); 
    //Serial.println("in display");
- }
+}
