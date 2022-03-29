@@ -6,7 +6,13 @@ Desktop/SYSC3010/SYSC3010-Project-Jukebox/PiPythonforArduino/DBtest.py:64:17:
 F405 'PN532_UART' may be undefined, or defined from star imports: pn532
 
 I am unsure of what is wrong with the pn532 import but it works as normal, so
-I did not address the issue
+I did not address the issue.
+
+This program is meant to simulate a Jukebox that is capable of playing songs
+from reading an NFC tag. The program will scan an NFC tag, go into a Firebase
+database and find the corresponding song and artist info for a given tag ID,
+update a screen on a connected arduino with the song and artist name, and
+log the song request info in both a Firebase database and a local database.
 '''
 
 
