@@ -1,8 +1,8 @@
 '''
 Flake8 output:
-Desktop/SYSC3010/SYSC3010-Project-Jukebox/PiPythonforArduino/DBtest.py:6:1:
+Desktop/SYSC3010/SYSC3010-Project-Jukebox/PiPythonforArduino/DBtest.py:24:1:
 F403 'from pn532 import *' used; unable to detect undefined names
-Desktop/SYSC3010/SYSC3010-Project-Jukebox/PiPythonforArduino/DBtest.py:64:17:
+Desktop/SYSC3010/SYSC3010-Project-Jukebox/PiPythonforArduino/DBtest.py:82:17:
 F405 'PN532_UART' may be undefined, or defined from star imports: pn532
 
 I am unsure of what is wrong with the pn532 import but it works as normal, so
