@@ -26,14 +26,11 @@ def main():
         entries = response['feeds']
         # Print out the temperature at each entry's time
         e = entries[-1]
-        #for e in entries:
         #create message with readings
         data = e['field1']
         if data != temp:
-            #print("Channel Name: {}".format(response['channel']['name']))
             print("Data: " + data)
             temp = data
-        #print("At {}, the temperature was {}".format(e['created_at'], e['field1']))
         time.sleep(5)
  
 if __name__ == "__main__":
