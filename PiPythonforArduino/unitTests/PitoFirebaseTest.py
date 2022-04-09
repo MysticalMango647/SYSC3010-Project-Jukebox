@@ -1,3 +1,9 @@
+'''
+This script runs on the Jukebox Pi and makes sure that the Pi is able to log a request
+in the Firebase database with the information in the proper format, and checks to make
+sure when a known tag ID is passed that the correct song info is retrieved from the database.
+Written by: Corbin Garlough
+'''
 # imports
 import pyrebase
 import random
