@@ -4,6 +4,7 @@ from reading an NFC tag. The program will scan an NFC tag, go into a Firebase
 database and find the corresponding song and artist info for a given tag ID,
 update a screen on a connected arduino with the song and artist name, and
 log the song request info in both a Firebase database and a local database.
+Written by: Corbin Garlough
 '''
 
 
