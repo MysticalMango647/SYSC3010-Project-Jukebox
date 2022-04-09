@@ -1,3 +1,7 @@
+'''
+This script runs on the Jukebox Pi and test that communication between the Pi and Arduino is working correctly
+Written by: Corbin Garlough
+'''
 #!/usr/bin/env python3
 # imports
 import serial
