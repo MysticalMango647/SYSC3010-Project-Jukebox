@@ -1,3 +1,8 @@
+'''
+This script runs on the Jukebox Pi and tests to make sure that the Pi is 
+able to log requests with info in the proper format in the local database.
+Written by: Corbin Garlough
+'''
 # imports
 import pyrebase
 import random
