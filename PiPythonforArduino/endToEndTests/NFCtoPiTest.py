@@ -1,3 +1,8 @@
+'''
+This script runs on the Jukebox Pi and tests that the NFC scanner is working correctly and generating the correct ID for a known tag
+Written by: Corbin Garlough
+'''
+
 #imports
 import RPi.GPIO as GPIO
 from pn532 import *
