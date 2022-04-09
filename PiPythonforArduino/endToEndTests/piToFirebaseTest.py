@@ -1,3 +1,7 @@
+'''
+This script runs on the Jukebox Pi and tests to make sure the Pi is able to read data from the database
+Written by: Corbin Garlough
+'''
 # imports
 import pyrebase
 import random
