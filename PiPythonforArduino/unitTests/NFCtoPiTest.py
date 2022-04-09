@@ -1,3 +1,7 @@
+'''
+This script runs on the Jukebox Pi and makes sure the NFC reader produces the correct tag ID when a known tag is scanned
+Written by: Corbin Garlough
+'''
 #imports
 import RPi.GPIO as GPIO
 from pn532 import *
