@@ -25,7 +25,7 @@ db = firebase.database()
 
 dataset1 = "tagIDs"
 '''
-readData() goesto the firebase database and retrieves an updated list of all stored tag IDs
+readData() goes to the firebase database and retrieves an updated list of all stored tag IDs
 '''
 def readData():
   # Returns the entry as an ordered dictionary (parsed from json)
