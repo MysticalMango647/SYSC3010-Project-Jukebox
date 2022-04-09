@@ -12,10 +12,10 @@ void setup() {
 void loop() {
   if (Serial.available() > 0) {
     String data = Serial.readStringUntil('\n');
-    ind1 = data.indexOf('(');
-    ind2 = data.indexOf(')');
-    text = data.substring(ind1+1, ind2);
-    updateDisplay(text);
+//    ind1 = data.indexOf('(');
+//    ind2 = data.indexOf(')');
+//    text = data.substring(ind1+1, ind2);
+    updateDisplay(data);
   }
 }
 
