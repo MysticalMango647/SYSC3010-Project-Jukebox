@@ -1,1 +1,1 @@
-This folder contains the code that should run on the Jukebox Pi to communicate with Arduino
+This folder contains the main program to run on the Jukebox Pi, and the test folders for each part of the system.
