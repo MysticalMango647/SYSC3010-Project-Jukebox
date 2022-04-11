@@ -1,22 +1,15 @@
-# SYSC3010-Project-Jukebox
-====================================
+# iJukebox  
+SYSC 3010 A   
+Group L3-G6: Corbin Garlough, Yunas Magsi, Flynn Graham  
+TA: Roger Selzler  
+![Project Image](finishedProduct.PNG)
+___
 
-### Brought to you by: Corbin Garlough | Flynn Graham | Yunas Magsi
+The iJukebox is a miniature Jukebox that sits in a common area, its main function is to read NFC cards and play songs while displaying the cover art of the song being played. These NFC cards are decorated with the artist’s album cover and store values for songs from a specific artist. When a user picks a song they like, they will insert their card in the iJukebox and it will scan the NFC card to place a request for that song to play from Spotify. The iJukebox reads NFC cards, fetches a corresponding song’s info from a Firebase database based on an ID read from the NFC tag, updates a display with the song info, and plays the song on a separate speaker. 
 
 
 
 
-
-
-### **Rough Idea**
------------------------------------------------------------------------
-#### The ideas so far
-* This will be a combination of juke box and a vinyl record plater, however to be more eco friendly we will use nfc cards with pictures of our favourite artist on them.
-* For The motor accutator there will be a dispensor and insertor for the card reader
-* We will have a speaker connected to the aux of the raspberry pi.
-* There will be a hidden power supply inside of the jukebox
-* For the database portion, we will store the music on another and the raspberry pis will do a call to sent request on what to play.
-* Possibly add rgb lights that are interative to the envorionment
 
 
 ### **References**  
