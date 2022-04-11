@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
+// create a track data type
 const track = {
     name: "",
     album: {
@@ -20,15 +21,17 @@ function WebPlayback(props) {
     const [current_track, setTrack] = useState(track);
 
     useEffect(() => {
-
+        
+        //opens up an embedded spotify player script from spotify
         const script = document.createElement("script");
         script.src = "https://sdk.scdn.co/spotify-player.js";
         script.async = true;
 
         document.body.appendChild(script);
 
+        //When the player is ready, pass it our token and start it
         window.onSpotifyWebPlaybackSDKReady = () => {
-
+            
             const player = new window.Spotify.Player({
                 name: 'Pi Jukebox',
                 getOAuthToken: cb => { cb(props.token); },
@@ -37,6 +40,7 @@ function WebPlayback(props) {
 
             setPlayer(player);
 
+            //Logs our device_id
             player.addListener('ready', ({ device_id }) => {
                 console.log('Ready with Device ID', device_id);
 
@@ -46,6 +50,7 @@ function WebPlayback(props) {
                 console.log('Device ID has gone offline', device_id);
             });
 
+            //If playback state changes, update the webplayer with the latest states
             player.addListener('player_state_changed', ( state => {
 
                 if (!state) {
@@ -61,11 +66,13 @@ function WebPlayback(props) {
 
             }));
 
+            //connects the player
             player.connect();
 
         };
     }, []);
 
+   //if the player instance isn't active, return html to prompt user to swap playback
    if (!is_active) { 
        return (
             <>
@@ -75,7 +82,9 @@ function WebPlayback(props) {
                     </div>
                 </div>
             </>)
-    } else {
+    }
+    //If the player is active, display the album art and a couple of playback buttons
+    else {
         return (
             <>
                 <div className="container">
