@@ -1,5 +1,6 @@
 import React from 'react';
 
+//Returns a simple login button to redirect the user to the login page
 function Login() {
     return (
         <div className="App">
