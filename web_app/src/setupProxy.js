@@ -1,3 +1,5 @@
+//Creates a proxy to our backend server
+
 const { createProxyMiddleware } = require('http-proxy-middleware');
 
 module.exports = function (app) {
