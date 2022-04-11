@@ -8,11 +8,15 @@ global.access_token = ''
 
 dotenv.config()
 
+//Acquiring environment variables, to use yourself, edit the .env file with your corresponding ID, Secret and IP
+
 var spotify_client_id = process.env.SPOTIFY_CLIENT_ID
 var spotify_client_secret = process.env.SPOTIFY_CLIENT_SECRET
 var ip = process.env.PI_IP
 
-var spotify_redirect_uri = 'https://172.17.152.53:3000/auth/callback'
+//
+
+var spotify_redirect_uri = 'https://' + ip + ':3000/auth/callback'
 
 var generateRandomString = function (length) {
   var text = '';
@@ -26,11 +30,16 @@ var generateRandomString = function (length) {
 
 var app = express();
 
+//Below are all the requests that the server handles
+
+
+//This redirects the user to the spotify login page
 app.get('/auth/login', (req, res) => {
 
   var scope = "streaming user-read-email user-read-private"
   var state = generateRandomString(16);
 
+  //Pass on our credentials to the authorization portal, as well as give a redirect URI for once we login
   var auth_query_parameters = new URLSearchParams({
     response_type: "code",
     client_id: spotify_client_id,
@@ -42,6 +51,7 @@ app.get('/auth/login', (req, res) => {
   res.redirect('https://accounts.spotify.com/authorize/?' + auth_query_parameters.toString());
 })
 
+//If login is succesful, we will get redirected here, here we will acquire our access token
 app.get('/auth/callback', (req, res) => {
 
   var code = req.query.code;
@@ -70,6 +80,7 @@ app.get('/auth/callback', (req, res) => {
 
 })
 
+//Here is where the SpeakerPi sends its change song request to
 app.post('/play/:songID', (req, res) => {
 
   var token = access_token;
@@ -94,6 +105,7 @@ app.post('/play/:songID', (req, res) => {
   res.json({'Playing' : req.params.songID})
 })
 
+//This returns our access token
 app.get('/auth/token', (req, res) => {
   res.json({ access_token: access_token})
 })
