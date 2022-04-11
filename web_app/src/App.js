@@ -7,6 +7,7 @@ function App() {
 
   const [token, setToken] = useState('');
 
+  //This use effect hook asynchronously awaits a token
   useEffect(() => {
 
     async function getToken() {
@@ -19,6 +20,7 @@ function App() {
 
   }, []);
 
+  //If we dont have a token return the login page, if we do have a token return the webplayback page
   return (
     <>
         { (token === '') ? <Login/> : <WebPlayback token={token} /> }
