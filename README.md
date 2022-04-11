@@ -11,7 +11,7 @@ The iJukebox is a miniature Jukebox that sits in a common area, its main functio
 ## Repo Description
 Our project repo is made up of directories for the Python, Arduino, and web app code that is required to make the iJukebox work. We also have a directory for our WIPURs, and an image of the final iJukebox product. In the PythonWork directory you will find folders for the end to end, and unit tests for the system, the support files needed for the PN 532 NFC reader, the local database that we use to store play requests (iJukeboxDB), and the main program to run on the jukebox Pi (jukeboxMain.py). (YUNAS FINISH SUMMARY OF ARDUINO FOLDER). 
 
-In the web app folder there is three sub folders, src, server and tests. The src contains all the code to create the frontend GUI (App.js, index.js, login.js, setupproxy.js and all the corresponding css files) and embed a spotify player instance into the web browser (WebPlayback.jsx). The server folder hosts the server that interacts with the spotify API. The tests folder contains tests for ensuring the web app functions properly.
+In the web app folder there is four sub folders, src, server, public and tests. The src contains all the code to create the frontend GUI (App.js, index.js, login.js, setupproxy.js and all the corresponding css files) and embed a spotify player instance into the web browser (WebPlayback.jsx). The server folder hosts the server that interacts with the spotify API. The tests folder contains tests for ensuring the web app functions properly. The public file just includes some images and things used by React.
 
 ## Installation Instructions & How to Run the System
 Start by cloning this repo onto the Jukebox Pi and Speaker Pi, then proceed with the following setup.  
