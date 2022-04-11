@@ -1,1 +1,1 @@
-This folder contains the main program to run on the Jukebox Pi, the local database used to store play requests, and the test folders for each part of the system.
+This folder contains the main program to run on the Jukebox Pi, the local database used to store play requests, the support files needed for the PN 532 NFC reader, and the test folders for each part of the system.
