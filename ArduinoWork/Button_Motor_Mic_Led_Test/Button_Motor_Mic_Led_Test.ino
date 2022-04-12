@@ -311,3 +311,5 @@ step_number++;
 //https://github.com/adafruit/Adafruit_NeoPixel
 //microphone test
 //https://learn.sparkfun.com/tutorials/sound-detector-hookup-guide/software-example
+//stepper motor
+//https://www.youtube.com/watch?v=avrdDZD7qEQ&t=190s
