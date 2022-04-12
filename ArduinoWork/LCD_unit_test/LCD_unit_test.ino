@@ -55,3 +55,6 @@ void loop() {
    ///Serial.println(artist); 
    //Serial.println("in display");
 }
+//sources used in project
+//serial communication
+//https://eecs.blog/sending-multiple-values-over-serial-to-arduino/
